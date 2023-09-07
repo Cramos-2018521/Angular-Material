@@ -1,0 +1,60 @@
+<div class="container">
+  <router-outlet></router-outlet>
+
+  <h1 class="mt-4">Datepicker Rango</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <app-datepicker-rango class="clase-bootstrap"></app-datepicker-rango>
+    </div>
+  </div>
+
+  <h1 class="mt-4">Datepicker Mes y Año</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <app-datepicker-mes-ano class="clase-bootstrap"></app-datepicker-mes-ano>
+    </div>
+  </div>
+
+  <h1 class="mt-4">Datepicker Formato MM-DD-YYYY</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <app-datepicker-formato-mm-dd-yyyy
+        class="clase-bootstrap"
+      ></app-datepicker-formato-mm-dd-yyyy>
+    </div>
+  </div>
+
+  <h1 class="mt-4">Datepicker Fecha Mínima y Máxima</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <app-datepicker-fecha-min-max
+        class="clase-bootstrap"
+      ></app-datepicker-fecha-min-max>
+    </div>
+  </div>
+
+  <h1 class="mt-4">Open Dialog</h1>
+  <div>
+    <button
+      mat-fab
+      color="primary"
+      (click)="openDialog()"
+      class="btn btn-primary clase-bootstrap"
+    >
+      +
+    </button>
+  </div>
+
+  <h1 class="mt-4">Tabla</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <app-tabla class="clase-bootstrap"></app-tabla>
+    </div>
+  </div>
+  <h1 class="mt-4">Stepper</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <app-stepper class="clase-bootstrap"></app-stepper>
+    </div>
+  </div>
+</div>

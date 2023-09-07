@@ -1,0 +1,24 @@
+<h1 mat-dialog-title class="modal-title">{{ data.title }}</h1>
+<div mat-dialog-content class="modal-body">
+  <form>
+    <mat-form-field class="form-group">
+      <input
+        matInput
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Nombre"
+        required
+        class="form-control"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="modal-footer">
+  <button mat-button class="btn btn-secondary" (click)="onCancel()">
+    Cancelar
+  </button>
+  <button mat-button class="btn btn-primary" (click)="onConfirm()">
+    Confirmar
+  </button>
+</div>
+<div *ngIf="name" class="alert alert-success">Nombre ingresado: {{ name }}</div>

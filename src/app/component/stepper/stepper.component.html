@@ -1,0 +1,92 @@
+<div class="container mt-3">
+  <mat-horizontal-stepper #stepper linear>
+    <!-- Paso 1 -->
+    <mat-step [stepControl]="step1Form">
+      <ng-template matStepLabel
+        >Step 1 - Ingresar fecha de nacimiento</ng-template
+      >
+      <form [formGroup]="step1Form">
+        <mat-form-field>
+          <input
+            matInput
+            type="date"
+            formControlName="birthdate"
+            placeholder="Fecha de nacimiento"
+            required
+          />
+        </mat-form-field>
+        <div
+          class="text-danger"
+          *ngIf="step1Form?.get('birthdate')?.hasError('required')"
+        >
+          Fecha de nacimiento es requerida.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="step1Form?.get('birthdate')?.hasError('invalidDate')"
+        >
+          La fecha debe ser menor al día actual.
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Paso 2 -->
+    <mat-step [stepControl]="step2Form">
+      <ng-template matStepLabel>Step 2 - Ingresar nombre</ng-template>
+      <form [formGroup]="step2Form">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            formControlName="name"
+            placeholder="Nombre"
+            required
+          />
+        </mat-form-field>
+        <div
+          class="text-danger"
+          *ngIf="step2Form?.get('name')?.hasError('required')"
+        >
+          Nombre es requerido.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="step2Form?.get('name')?.hasError('pattern')"
+        >
+          Solo se permiten letras en el nombre.
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Paso 3 -->
+    <mat-step>
+      <ng-template matStepLabel
+        >Step 3 - Mostrar toggle llamado DPI</ng-template
+      >
+      <mat-slide-toggle [(ngModel)]="showDpi">Mostrar DPI</mat-slide-toggle>
+      <div *ngIf="showDpi">
+        <mat-form-field>
+          <input matInput type="text" placeholder="DPI" />
+        </mat-form-field>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div class="d-flex justify-content-between mt-3">
+    <button
+      mat-button
+      (click)="prevStep(stepper)"
+      [disabled]="!stepper || stepper.selectedIndex === 0"
+      class="btn btn-primary"
+    >
+      Anterior
+    </button>
+    <button
+      mat-button
+      (click)="nextStep(stepper)"
+      [disabled]="!isStepValid(stepper) || stepper.selectedIndex === 2"
+      class="btn btn-primary"
+    >
+      Siguiente
+    </button>
+  </div>
+</div>
